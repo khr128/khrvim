@@ -32,6 +32,9 @@ vnoremap <C-K><C-L> :s:^#::<CR>
 vnoremap <C-K><C-P> "+gP
 vnoremap <C-K><C-Y> "+y
 
+map <F5> :GundoToggle<CR>
+imap <F5> <Esc>:GundoToggle<CR>
+
 map <F12> :set foldmethod=manual<CR>
 map <C-F12> :set foldmethod=syntax<CR>
 
