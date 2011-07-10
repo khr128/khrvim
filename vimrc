@@ -41,8 +41,10 @@ map <C-F12> :set foldmethod=syntax<CR>
 map <C-S> :wa<CR>
 imap <C-S> <Esc>:wa<CR>
 
-map ,t <Esc>:tabnew.<CR>
-imap ,t :tabnew.<CR>
+map ,s :UniteWithCursorWord -no-quit line<CR>
+imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
+map ,t:tabnew.<CR>
+imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
 imap jj <Esc>
 
