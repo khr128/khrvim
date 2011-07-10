@@ -45,3 +45,9 @@ map ,t <Esc>:tabnew.<CR>
 imap ,t :tabnew.<CR>
 map ,p "0p
 imap jj <Esc>
+
+
+filetype plugin on
+
+let g:SimplenoteUsername = "abusik@hotmail.com"
+let g:SimplenotePassword = "notational_velocity"
