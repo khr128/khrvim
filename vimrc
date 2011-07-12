@@ -7,6 +7,7 @@ set hidden
 set number
 set ruler
 set cul
+set cc=120
 set incsearch
 set tabstop=2
 set shiftwidth=2
@@ -26,10 +27,18 @@ set tildeop
 set expandtab
 set list
 set diffopt+=vertical
+set winminwidth=50
 
 set title
 set nobackup
 set noswapfile
+
+"Folding mappings
+vnoremap <Space> zf
+imap <C-Space> <C-X><C-I>
+map <C-Space> zc
+map <C-\> zk
+map <C-Z> zj
 
 vnoremap <C-K><C-Space> :s:^://:<CR>
 vnoremap <C-K><C-U> :s:^//::<CR>
@@ -39,17 +48,54 @@ vnoremap <C-K><C-L> :s:^#::<CR>
 vnoremap <C-K><C-P> "+gP
 vnoremap <C-K><C-Y> "+y
 
+"Search for a pattern in files
+map <C-F4> :grep -rsw regexp --include=*.rb */*
+map <F4> :Ack -wiu -G [\.]rb pattern app
+
 map <F5> :GundoToggle<CR>
 imap <F5> <Esc>:GundoToggle<CR>
+
+"Line numbering
+map <F11> :set nu<CR>
+map <C-F11> :set rnu<CR>
+map <S-F11> :set nonu<CR>
+
+"Fold methods
+map <F12> :set foldmethod=manual<CR>
+map <C-F12> :set foldmethod=syntax<CR>
 
 map <F12> :set foldmethod=manual<CR>
 map <C-F12> :set foldmethod=syntax<CR>
 
+"Relative sizing of two horizontal windows
+map ,- <C-W>-
+map ,+ <C-W>+
+"Relative sizing of two vertical windows
+map ,. <C-W><
+map ,, <C-W>>
+map ,<Leader> <C-W>w<C-W>\|
+
+"Find next ruby symbol (use F19 to highlight all)
+map ,: /\(\:\)\@<!\:\<.\{-}\><CR>
+"Find next instance variable (use F19 to highlight all)
+map ,@ /\(@\)\@<!@\<.\{-}\><CR>
+
+
+"Toggle regexp selection highlighting
+map ,h :set hls<CR>
+map ,x :set nohls<CR>
+
 map <C-S> :wa<CR>
 imap <C-S> <Esc>:wa<CR>
 
+"Split and jump to tag
+map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
+imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
+
+
 map ,s :UniteWithCursorWord -no-quit line<CR>
 imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
+
 map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
