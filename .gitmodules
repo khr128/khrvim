@@ -7,8 +7,8 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "/home/khr/.vim/bundle/gundo"]
-	path = /home/khr/.vim/bundle/gundo
+[submodule "bundle/gundo"]
+  path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
 [submodule "bundle/simplenote"]
 	path = bundle/simplenote
