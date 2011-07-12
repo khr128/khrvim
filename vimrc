@@ -43,7 +43,7 @@ imap <C-S> <Esc>:wa<CR>
 
 map ,s :UniteWithCursorWord -no-quit line<CR>
 imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
-map ,t:tabnew.<CR>
+map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
 imap jj <Esc>
