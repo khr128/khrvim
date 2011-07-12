@@ -1,8 +1,9 @@
+set nocompatible
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-set nocompatible
 colorscheme khr
+set hidden
 set number
 set ruler
 set cul
@@ -14,6 +15,8 @@ set foldmethod=syntax
 set foldcolumn=5
 set formatoptions=tcqan2w
 set autoindent
+set copyindent
+set showmatch
 set nowrap
 set listchars=extends:>
 set listchars=precedes:<
@@ -23,6 +26,10 @@ set tildeop
 set expandtab
 set list
 set diffopt+=vertical
+
+set title
+set nobackup
+set noswapfile
 
 vnoremap <C-K><C-Space> :s:^://:<CR>
 vnoremap <C-K><C-U> :s:^//::<CR>
@@ -47,9 +54,14 @@ map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
 imap jj <Esc>
+nnoremap ; :
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 
-filetype plugin on
+filetype plugin indent on
 
 let g:SimplenoteUsername = "abusik@hotmail.com"
 let g:SimplenotePassword = "notational_velocity"
