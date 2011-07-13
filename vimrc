@@ -87,6 +87,8 @@ map ,x :set nohls<CR>
 
 map <C-S> :wa<CR>
 imap <C-S> <Esc>:wa<CR>
+map <C-C> <C-W>c<CR>
+imap <C-C> <C-W>c<CR>
 
 "Split and jump to tag
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
