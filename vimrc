@@ -7,7 +7,6 @@ set hidden
 set number
 set ruler
 set cul
-set cc=120
 set incsearch
 set tabstop=2
 set shiftwidth=2
