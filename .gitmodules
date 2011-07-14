@@ -10,8 +10,6 @@
 [submodule "bundle/gundo"]
   path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule "bundle/simplenote"]
-	path = bundle/simplenote
 	url = git://github.com/mrtazz/simplenote.vim.git
 [submodule "bundle/textobj-user"]
 	path = bundle/textobj-user
