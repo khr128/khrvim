@@ -3,7 +3,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 colorscheme khr
-set hidden
+"set hidden
 set number
 set ruler
 set cul
@@ -26,6 +26,7 @@ set tildeop
 set expandtab
 set list
 set diffopt+=vertical
+set winwidth=50
 set winminwidth=50
 
 set title

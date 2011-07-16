@@ -1,8 +1,8 @@
 " local syntax file - set colors on a per-machine basis:
-" vim: tw=0 ts=4 sw=4
+" vim: tw=0 ts=2 sw=2
 " Vim color file
-" Maintainer:   Ron Aaron <ron@ronware.org>
-" Last Change:  2003 May 02
+" Maintainer:   Dmitri Khrebtukov
+" Last Change:  July 2011
 
 set background=light
 hi clear
@@ -25,7 +25,7 @@ hi Tag term=bold ctermfg=DarkGreen guifg=OliveDrab
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi  StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=Yellow guibg=DarkGray
-hi  CursorLine term=none cterm=none ctermfg=Yellow ctermbg=DarkGray gui=none guifg=DarkBlue guibg=LightGray
+hi  CursorLine term=none cterm=underline ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#ffffaa guisp=DarkGray
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
