@@ -26,8 +26,6 @@ set tildeop
 set expandtab
 set list
 set diffopt+=vertical
-set winwidth=50
-set winminwidth=50
 
 set title
 set nobackup
