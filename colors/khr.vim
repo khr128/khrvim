@@ -24,8 +24,9 @@ hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=NONE guifg=Black guibg=Cya
 hi Tag term=bold ctermfg=DarkGreen guifg=OliveDrab
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
-hi  StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=Yellow guibg=DarkGray
-hi  CursorLine term=none cterm=underline ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#ffffaa guisp=DarkGray
+hi StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=underline guifg=Yellow guibg=DarkGray
+hi CursorLine term=none cterm=underline ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#ffffaa guisp=DarkGray
+hi CursorColumn term=none cterm=none ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#dddddd guisp=#dddddd
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
