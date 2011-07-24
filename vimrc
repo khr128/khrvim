@@ -3,7 +3,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 colorscheme khr
-"set hidden
+set hidden
 set number
 set ruler
 set cul
