@@ -4,7 +4,10 @@ call pathogen#helptags()
 
 colorscheme khr
 syntax on
+set nobackup
+set noswapfile
 set hidden
+set ignorecase smartcase
 set number
 set ruler
 set cul
@@ -14,7 +17,7 @@ set shiftwidth=2
 set foldenable
 set foldmethod=syntax
 set foldcolumn=5
-set formatoptions=tcqan2w
+set formatoptions=tcq
 set autoindent
 set copyindent
 set showmatch
@@ -66,6 +69,10 @@ map <C-F12> :set foldmethod=syntax<CR>
 map <F12> :set foldmethod=manual<CR>
 map <C-F12> :set foldmethod=syntax<CR>
 
+"Toggle autocopy to clipboard
+map <C-K><C-B> :set guioptions-=a <CR>
+map <C-K><C-A> :set guioptions+=a<CR>
+
 "Relative sizing of two horizontal windows
 map ,- <C-W>-
 map ,+ <C-W>+
@@ -74,9 +81,9 @@ map ,. <C-W><
 map ,, <C-W>>
 map ,<Leader> <C-W>w<C-W>\|
 
-"Find next ruby symbol (use F19 to highlight all)
+"Find next ruby symbol (use :set hls to highlight all)
 map ,: /\(\:\)\@<!\:\<.\{-}\><CR>
-"Find next instance variable (use F19 to highlight all)
+"Find next instance variable (use :set hls to highlight all)
 map ,@ /\(@\)\@<!@\<.\{-}\><CR>
 
 
@@ -93,6 +100,8 @@ imap <C-C> <C-W>c<CR>
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 
+map ,s :UniteWithCursorWord -no-quit line<CR>
+imap ,s <Esc>:UniteWithCursorWord -no-quit line<CR>
 
 map ,s :UniteWithCursorWord -no-quit line<CR>
 imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
@@ -100,6 +109,15 @@ imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
 map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
+
+"Toggle between implementation and spec files
+map ,a :vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
+imap ,a <Esc>:vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
+
+"Open ActiveRecord association in split window
+map ,g :vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
+imap ,g <Esc>:vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
+
 imap jj <Esc>
 nnoremap ; :
 map <up> <nop>
@@ -107,6 +125,12 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+let g:netrw_liststyle=3
+let g:CommandTMaxFiles=20000
+
+"Save views with folds
+au BufWinLeave *.* mkview!
+au BufWinEnter *.* silent loadview
 
 filetype plugin indent on
 
