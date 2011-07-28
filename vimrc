@@ -116,6 +116,13 @@ map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
 
+map ,h :help <C-R><C-W><CR>
+imap ,h :help <Esc><C-R><C-W><CR>
+
+"Fold all folds but the one that has the current line
+map ,z <Esc>zMzv<CR>
+imap ,z <Esc>zMzv<CR>
+
 "Toggle between implementation and spec files
 map ,a :vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
 imap ,a <Esc>:vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
