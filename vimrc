@@ -50,6 +50,10 @@ vnoremap <C-K><C-L> :s:^#::<CR>
 vnoremap <C-K><C-P> "+gP
 vnoremap <C-K><C-Y> "+y
 
+"Git mappings
+map <F2> :Gstatus<CR>:only<CR>zR
+imap <F2> <Esc>:Gstatus<CR>:only<CR>zR
+
 "Search for a pattern in files
 map <C-F4> :grep -rsw regexp --include=*.rb */*
 map <F4> :Ack -wiu -G [\.]rb pattern app
@@ -93,8 +97,8 @@ map ,x :set nohls<CR>
 
 map <C-S> :wa<CR>
 imap <C-S> <Esc>:wa<CR>
-map <C-C> <C-W>c<CR>
-imap <C-C> <C-W>c<CR>
+map <C-C> <C-W>c
+imap <C-C> <C-W>c
 
 "Split and jump to tag
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
