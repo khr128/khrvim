@@ -47,8 +47,9 @@ vnoremap <C-K><C-U> :s:^//::<CR>
 vnoremap <C-K><C-K> :s:^:#:<CR>
 vnoremap <C-K><C-L> :s:^#::<CR>
 
-vnoremap <C-K><C-P> "+gP
+noremap <C-K><C-P> "+gP
 vnoremap <C-K><C-Y> "+y
+
 
 "Git mappings
 map <F2> :Gstatus<CR>:only<CR>zR
