@@ -40,3 +40,6 @@
 [submodule "bundle/rspec"]
 	path = bundle/rspec
 	url = https://github.com/taq/vim-rspec.git
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
