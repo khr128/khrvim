@@ -56,16 +56,21 @@ map <F2> :Gstatus<CR>:only<CR>zR
 imap <F2> <Esc>:Gstatus<CR>:only<CR>zR
 
 "Search for a pattern in files
+map <F3> :CommandT ./
+imap <F3> <Esc>:CommandT ./
 map <C-F4> :grep -rsw regexp --include=*.rb */*
 map <F4> :Ack -wiu -G [\.]rb pattern app
+imap <F4> <Esc>:Ack -wiu -G [\.]rb pattern app
 
 map <F5> :GundoToggle<CR>
 imap <F5> <Esc>:GundoToggle<CR>
 
 "Line numbering
 map <F11> :set nu<CR>
+imap <F11> <Esc>:set nu<CR>
 map <C-F11> :set rnu<CR>
-map <S-F11> :set nonu<CR>
+imap <C-F11> <Esc>:set rnu<CR>
+map <S-F11> :set nu<CR>:set nonu<CR>
 
 "Fold methods
 map <F12> :set foldmethod=manual<CR>
