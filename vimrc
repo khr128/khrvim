@@ -104,6 +104,10 @@ imap <C-S> <Esc>:wa<CR>
 map <C-C> <C-W>c
 imap <C-C> <C-W>c
 
+"Ruby syntax checking
+map <C-K><C-S> :w !ruby -c<CR>
+imap <C-K><C-S> <Esc>:w !ruby -c<CR>
+
 "Split and jump to tag
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
