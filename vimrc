@@ -77,6 +77,10 @@ map <C-F12> :set foldmethod=syntax<CR>
 map <F12> :set foldmethod=manual<CR>
 map <C-F12> :set foldmethod=syntax<CR>
 
+"Coffeescript
+map <F13> :CoffeeCompile<CR>
+imap <F13> <Esc>:CoffeeCompile<CR>
+
 "Toggle autocopy to clipboard
 map <C-K><C-B> :set guioptions-=a <CR>
 map <C-K><C-A> :set guioptions+=a<CR>
@@ -162,7 +166,7 @@ let g:SimplenotePassword = "notational_velocity"
 map <Leader><Bar> :Tab /<Bar><CR>
 imap <Leader><Bar> <Esc>:Tab /<Bar><CR>
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -175,3 +179,8 @@ function! s:align()
 endfunction
 
 let g:LustyJugglerShowKeys = 'a'
+
+set statusline=%n\ %F[%l,%c]%m%r%h%w%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
+set title
+set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
+set laststatus=2
