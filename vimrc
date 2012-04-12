@@ -4,6 +4,7 @@ call pathogen#helptags()
 
 colorscheme khr
 syntax on
+set history=128
 set nobackup
 set noswapfile
 set hidden
@@ -98,7 +99,6 @@ map ,: /\(\:\)\@<!\:\<.\{-}\><CR>
 "Find next instance variable (use :set hls to highlight all)
 map ,@ /\(@\)\@<!@\<.\{-}\><CR>
 
-
 "Toggle regexp selection highlighting
 map ,h :set hls<CR>
 map ,x :set nohls<CR>
@@ -112,6 +112,10 @@ imap <C-C> <C-W>c
 map <C-K><C-S> :w !ruby -c<CR>
 imap <C-K><C-S> <Esc>:w !ruby -c<CR>
 
+"Xml view
+map <C-K><C-X> :silent %!xmllint --encode UTF-8 --format -<CR>
+imap <C-K><C-X> :silent %!xmllint --encode UTF-8 --format -<CR>
+
 "Split and jump to tag
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
@@ -119,17 +123,11 @@ imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 map ,s :UniteWithCursorWord -no-quit line<CR>
 imap ,s <Esc>:UniteWithCursorWord -no-quit line<CR>
 
-map ,s :UniteWithCursorWord -no-quit line<CR>
-imap ,s  <Esc>:UniteWithCursorWord -no-quit line<CR>
-
 map <C-K><C-T> :tabnew<CR>
 imap <C-K><C-T> <Esc>:tabnew<CR>
 map ,t :tabnew.<CR>
 imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
-
-map ,h :help <C-R><C-W><CR>
-imap ,h :help <Esc><C-R><C-W><CR>
 
 "Fold all folds but the one that has the current line
 map ,z <Esc>zMzv<CR>
@@ -144,7 +142,7 @@ map ,g :vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
 imap ,g <Esc>:vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
 
 imap jj <Esc>
-nnoremap ; :
+"nnoremap ; :
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
