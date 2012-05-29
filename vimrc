@@ -105,8 +105,8 @@ map ,x :set nohls<CR>
 
 map <C-S> :wa<CR>
 imap <C-S> <Esc>:wa<CR>
-map <C-C> <C-W>c
-imap <C-C> <C-W>c
+map <C-C> :bd<CR>
+imap <C-C> <Esc>:bd<CR>
 
 "Ruby syntax checking
 map <C-K><C-S> :w !ruby -c<CR>
@@ -149,6 +149,7 @@ map <left> <nop>
 map <right> <nop>
 
 let g:netrw_liststyle=3
+let g:netrw_preview=1
 let g:CommandTMaxFiles=20000
 
 "Save views with folds
@@ -178,7 +179,7 @@ endfunction
 
 let g:LustyJugglerShowKeys = 'a'
 
-set statusline=%n\ %F[%l,%c]%m%r%h%w%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
+set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
 set title
 set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
