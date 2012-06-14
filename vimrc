@@ -16,7 +16,7 @@ set incsearch
 set tabstop=2
 set shiftwidth=2
 set foldenable
-set foldmethod=syntax
+set foldmethod=indent
 set foldcolumn=5
 set formatoptions=tcq
 set autoindent
