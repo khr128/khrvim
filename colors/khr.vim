@@ -12,7 +12,7 @@ endif
 let g:colors_name = "khr"
 
 hi Comment term=bold ctermfg=Red guifg=#006611
-hi Normal guifg=black guibg=Gainsboro
+hi Normal guifg=black guibg=gray91
 hi Constant term=underline ctermfg=Green guifg=DarkMagenta
 hi Special term=bold ctermfg=Magenta guifg=Purple
 hi Identifier term=underline ctermfg=Blue guifg=Blue
