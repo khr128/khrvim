@@ -185,3 +185,4 @@ set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
 
 let g:syntastic_enable_signs=1
+set noballooneval
