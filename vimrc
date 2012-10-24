@@ -4,6 +4,7 @@ call pathogen#helptags()
 
 colorscheme khr
 syntax on
+set guifont=Menlo:h14
 set history=128
 set nobackup
 set noswapfile
@@ -51,12 +52,10 @@ vnoremap <C-K><C-Y> "+y
 
 
 "Git mappings
-map <F2> :Gstatus<CR>:only<CR>zR
-imap <F2> <Esc>:Gstatus<CR>:only<CR>zR
+map <F2> :Gblame<CR>
+imap <F2> <Esc>:Gblame<CR>
 
 "Search for a pattern in files
-map <F3> :CommandT ./
-imap <F3> <Esc>:CommandT ./
 map <C-F4> :grep -rsw regexp --include=*.rb */*
 map <F4> :Ack -wiu -G [\.]rb pattern app
 imap <F4> <Esc>:Ack -wiu -G [\.]rb pattern app
@@ -123,10 +122,6 @@ imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 map ,s :UniteWithCursorWord -no-quit line<CR>
 imap ,s <Esc>:UniteWithCursorWord -no-quit line<CR>
 
-map <C-K><C-T> :tabnew<CR>
-imap <C-K><C-T> <Esc>:tabnew<CR>
-map ,t :tabnew.<CR>
-imap ,t  <Esc>:tabnew.<CR>
 map ,p "0p
 
 "Fold all folds but the one that has the current line
@@ -140,6 +135,10 @@ imap ,a <Esc>:vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
 "Open ActiveRecord association in split window
 map ,g :vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
 imap ,g <Esc>:vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
+
+"NERDTree
+map ,n :NERDTreeFind<CR>
+imap ,n <Esc>:NERDTreeFind<CR>
 
 imap jj <Esc>
 "nnoremap ; :
@@ -185,4 +184,3 @@ set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
 
 let g:syntastic_enable_signs=1
-set noballooneval
