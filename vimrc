@@ -30,6 +30,7 @@ set tildeop
 set expandtab
 set list listchars=extends:>,precedes:<,tab:→\ ,trail:·
 set diffopt+=vertical
+set switchbuf=useopen,usetab,newtab
 
 set title
 set nobackup
@@ -42,18 +43,27 @@ map <C-Space> zc
 map <C-\> zk
 map <C-Z> zj
 
+"Commenting
 vnoremap <C-K><C-Space> :s:^://:<CR>
 vnoremap <C-K><C-U> :s:^//::<CR>
 vnoremap <C-K><C-K> :s:^:#:<CR>
 vnoremap <C-K><C-L> :s:^#::<CR>
+vnoremap <C-K><C-Tab> :s:<\([^<]*\)>:<!-- \1 -->:gc<CR>
+vnoremap <C-K><S-Tab> :s:<!-- \([^<]*\) -->:<\1>:gc<CR>
 
 noremap <C-K><C-P> "+gP
 vnoremap <C-K><C-Y> "+y
 
+"Abbreviations
+iab edb <% debugger %>
+iab deb debugger
 
 "Git mappings
 map <F2> :Gblame<CR>
 imap <F2> <Esc>:Gblame<CR>
+
+"Put the output of the last g command into a window
+nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR>
 
 "Search for a pattern in files
 map <C-F4> :grep -rsw regexp --include=*.rb */*
@@ -71,11 +81,12 @@ imap <C-F11> <Esc>:set rnu<CR>
 map <S-F11> :set nu<CR>:set nonu<CR>
 
 "Fold methods
-map <F12> :set foldmethod=manual<CR>
-map <C-F12> :set foldmethod=syntax<CR>
+map <C-F12> :set foldmethod=manual<CR>
+map <F12> :set foldmethod=syntax<CR>
 
-map <F12> :set foldmethod=manual<CR>
-map <C-F12> :set foldmethod=syntax<CR>
+"Remove annoying balloon
+map <F19> :set noballooneval<CR>
+imap <F19> :set noballooneval<CR>
 
 "Coffeescript
 map <F13> :CoffeeCompile<CR>
@@ -89,14 +100,21 @@ map <C-K><C-A> :set guioptions+=a<CR>
 map ,- <C-W>-
 map ,+ <C-W>+
 "Relative sizing of two vertical windows
-map ,. <C-W><
-map ,, <C-W>>
+map ,. <C-W><5
+map ,, <C-W>>5
 map ,<Leader> <C-W>w<C-W>\|
+map ,= <C-W>=
+imap ,. <C-W><5
+imap ,, <C-W>>5
+imap ,<Leader> <C-W>w<C-W>\|
+imap ,= <C-W>=
 
 "Find next ruby symbol (use :set hls to highlight all)
 map ,: /\(\:\)\@<!\:\<.\{-}\><CR>
+imap ,: /\(\:\)\@<!\:\<.\{-}\><CR>
 "Find next instance variable (use :set hls to highlight all)
 map ,@ /\(@\)\@<!@\<.\{-}\><CR>
+imap ,@ /\(@\)\@<!@\<.\{-}\><CR>
 
 "Toggle regexp selection highlighting
 map ,h :set hls<CR>
@@ -125,8 +143,8 @@ imap ,s <Esc>:UniteWithCursorWord -no-quit line<CR>
 map ,p "0p
 
 "Fold all folds but the one that has the current line
-map ,z <Esc>zMzv<CR>
-imap ,z <Esc>zMzv<CR>
+map ,z <Esc>zMzvz.<CR>
+imap ,z <Esc>zMzvz.<CR>
 
 "Toggle between implementation and spec files
 map ,a :vsplit<CR><C-W>l:Rrefresh<CR>:A<CR>
@@ -146,6 +164,7 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+cnoremap <C-A> <Up>
 
 let g:netrw_liststyle=3
 let g:netrw_preview=1
@@ -184,3 +203,4 @@ set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
 
 let g:syntastic_enable_signs=1
+set noballooneval
