@@ -28,7 +28,6 @@ set cindent
 set sessionoptions=buffers,folds,globals,options,resize,winpos,tabpages,sesdir
 set tildeop
 set expandtab
-set list listchars=extends:>,precedes:<,tab:→\ ,trail:·
 set diffopt+=vertical
 set switchbuf=useopen,usetab,newtab
 
