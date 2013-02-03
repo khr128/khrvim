@@ -61,3 +61,6 @@
 [submodule "vim-pathogen"]
 	path = vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "bundle/handlebars"]
+	path = bundle/handlebars
+	url = https://github.com/nono/vim-handlebars.git
