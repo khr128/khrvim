@@ -64,6 +64,3 @@
 [submodule "bundle/handlebars"]
 	path = bundle/handlebars
 	url = https://github.com/nono/vim-handlebars.git
-[submodule "bundle/jshint"]
-	path = bundle/jshint
-	url = https://github.com/walm/jshint.vim.git
