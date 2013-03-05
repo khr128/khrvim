@@ -158,6 +158,10 @@ map ,n :NERDTreeFind<CR>
 imap ,n <Esc>:NERDTreeFind<CR>
 
 imap jj <Esc>
+imap hh <Esc>
+map oo i<CR><Esc>O
+imap oo <CR><Esc>O
+
 "nnoremap ; :
 map <up> <nop>
 map <down> <nop>
