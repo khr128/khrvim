@@ -12,7 +12,7 @@ endif
 let g:colors_name = "khr"
 
 hi Comment term=bold ctermfg=Red guifg=#006611
-hi Normal guifg=black guibg=Gainsboro
+hi Normal guifg=black guibg=gray91
 hi Constant term=underline ctermfg=Green guifg=DarkMagenta
 hi Special term=bold ctermfg=Magenta guifg=Purple
 hi Identifier term=underline ctermfg=Blue guifg=Blue
@@ -26,7 +26,9 @@ hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=underline guifg=Yellow guibg=DarkGray
 hi CursorLine term=none cterm=underline ctermfg=none ctermbg=none gui=undercurl guifg=fg guibg=#ffffaa guisp=Gray
-hi CursorColumn term=none cterm=none ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#dddddd guisp=#dddddd
+hi CursorColumn term=none cterm=none ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#dddfee guisp=#dddddd
+hi Folded guibg=#dddfee guifg=darkblue
+hi FoldColumn guibg=#dddfee guifg=darkblue
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
