@@ -1,3 +1,4 @@
+call pathogen#infect()
 set guioptions-=T
 set guioptions-=r
 set guioptions-=m
