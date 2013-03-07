@@ -177,6 +177,8 @@ let g:CommandTMaxFiles=20000
 au BufWinLeave *.* mkview!
 au BufWinEnter *.* silent loadview
 
+au BufRead,BufNewFile *.handlebars,*.hbs,*.hjs set ft=handlebars
+
 filetype plugin indent on
 
 let g:SimplenoteUsername = "abusik@hotmail.com"
