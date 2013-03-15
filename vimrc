@@ -50,9 +50,6 @@ vnoremap <C-K><C-L> :s:^#::<CR>
 vnoremap <C-K><C-Tab> :s:<\([^<]*\)>:<!-- \1 -->:gc<CR>
 vnoremap <C-K><S-Tab> :s:<!-- \([^<]*\) -->:<\1>:gc<CR>
 
-noremap <C-K><C-P> "+gP
-vnoremap <C-K><C-Y> "+y
-
 "Abbreviations
 iab edb <% debugger %>
 iab deb debugger
@@ -83,10 +80,6 @@ map <S-F11> :set nu<CR>:set nonu<CR>
 map <C-F12> :set foldmethod=manual<CR>
 map <F12> :set foldmethod=syntax<CR>
 
-"Remove annoying balloon
-map <F19> :set noballooneval<CR>
-imap <F19> :set noballooneval<CR>
-
 "Coffeescript
 map <F13> :CoffeeCompile<CR>
 imap <F13> <Esc>:CoffeeCompile<CR>
@@ -94,26 +87,6 @@ imap <F13> <Esc>:CoffeeCompile<CR>
 "Toggle autocopy to clipboard
 map <C-K><C-B> :set guioptions-=a <CR>
 map <C-K><C-A> :set guioptions+=a<CR>
-
-"Relative sizing of two horizontal windows
-map ,- <C-W>-
-map ,+ <C-W>+
-"Relative sizing of two vertical windows
-map ,. <C-W><5
-map ,, <C-W>>5
-map ,<Leader> <C-W>w<C-W>\|
-map ,= <C-W>=
-imap ,. <C-W><5
-imap ,, <C-W>>5
-imap ,<Leader> <C-W>w<C-W>\|
-imap ,= <C-W>=
-
-"Find next ruby symbol (use :set hls to highlight all)
-map ,: /\(\:\)\@<!\:\<.\{-}\><CR>
-imap ,: /\(\:\)\@<!\:\<.\{-}\><CR>
-"Find next instance variable (use :set hls to highlight all)
-map ,@ /\(@\)\@<!@\<.\{-}\><CR>
-imap ,@ /\(@\)\@<!@\<.\{-}\><CR>
 
 "Toggle regexp selection highlighting
 map ,h :set hls<CR>
@@ -136,8 +109,7 @@ imap <C-K><C-X> :silent %!xmllint --encode UTF-8 --format -<CR>
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 
-map ,s :UniteWithCursorWord -no-quit line<CR>
-imap ,s <Esc>:UniteWithCursorWord -no-quit line<CR>
+map ,s :g^<C-R><C-W>^nu<CR>
 
 map ,p "0p
 
@@ -159,8 +131,14 @@ imap ,n <Esc>:NERDTreeFind<CR>
 
 imap jj <Esc>
 imap hh <Esc>
-map oo i<CR><Esc>O
-imap oo <CR><Esc>O
+map ,( i({<CR>});<Esc>O
+
+"Javascript
+imap ,, ({<CR>});<Esc>O
+imap ,' ('')<Esc>hi
+imap ,{ {{}}<Esc>hi
+map ,f i<Space>function() {<CR>}<Esc>O
+imap ,f <Space>function() {<CR>}<Esc>O
 
 "nnoremap ; :
 map <up> <nop>
