@@ -131,10 +131,10 @@ imap ,n <Esc>:NERDTreeFind<CR>
 
 imap jj <Esc>
 imap hh <Esc>
-map ,( i({<CR>});<Esc>O
 
 "Javascript
 imap ,, ({<CR>});<Esc>O
+map ,, i({<CR>});<Esc>O
 imap ,' ('')<Esc>hi
 imap ,{ {{}}<Esc>hi
 map ,f i<Space>function() {<CR>}<Esc>O
