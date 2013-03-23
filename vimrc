@@ -152,6 +152,7 @@ imap hh <Esc>
 imap ,, ({<CR>});<Esc>O
 map ,, i({<CR>});<Esc>O
 imap ,' ('')<Esc>hi
+map ,{ i{{}}<Esc>hi
 imap ,{ {{}}<Esc>hi
 map ,f i<Space>function() {<CR>}<Esc>O
 imap ,f <Space>function() {<CR>}<Esc>O
@@ -202,4 +203,5 @@ set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
 
 let g:syntastic_enable_signs=1
+let g:syntastic_enable_balloons=0
 let g:syntastic_ruby_exec = "/usr/local/var/rbenv/shims/ruby"
