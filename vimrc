@@ -69,6 +69,13 @@ imap <F4> <Esc>:Ack -wiu -G [\.]rb pattern app
 map <F5> :GundoToggle<CR>
 imap <F5> <Esc>:GundoToggle<CR>
 
+map <F6> :Ggrep <C-R><C-W>
+imap <F6> <Esc>:Ggrep <C-R><C-W>
+map <F7> :cope<CR>
+imap <F7> <Esc>:cope<CR>
+map <F8> :g/<C-R><C-W>/nu<CR>
+imap <F8> <Esc>:g/<C-R><C-W>/nu<CR>
+
 "Line numbering
 map <F11> :set nu<CR>
 imap <F11> <Esc>:set nu<CR>
