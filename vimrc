@@ -53,6 +53,7 @@ vnoremap <C-K><S-Tab> :s:<!-- \([^<]*\) -->:<\1>:gc<CR>
 "Abbreviations
 iab edb <% debugger %>
 iab deb debugger
+iab jdb debugger;
 
 "Git mappings
 map <F2> :Gblame<CR>
@@ -62,37 +63,47 @@ imap <F2> <Esc>:Gblame<CR>
 nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR>
 
 "Search for a pattern in files
-map <C-F4> :grep -rsw regexp --include=*.rb */*
-map <F4> :Ack -wiu -G [\.]rb pattern app
-imap <F4> <Esc>:Ack -wiu -G [\.]rb pattern app
+map <F4> :Ack  <C-R><C-W><CR>
+imap <F4> <Esc>:Ack <C-R><C-W><CR>
 
 map <F5> :GundoToggle<CR>
 imap <F5> <Esc>:GundoToggle<CR>
 
-map <F6> :Ggrep <C-R><C-W>
-imap <F6> <Esc>:Ggrep <C-R><C-W>
-map <F7> :cope<CR>
-imap <F7> <Esc>:cope<CR>
+map ,r :Ggrep <C-R><C-W><CR>:copen<CR>
+map <F6> :Ggrep <C-R><C-W><CR>:copen<CR>
+imap <F6> <Esc>:Ggrep <C-R><C-W><CR>:copen<CR>
+
+map <F7> :copen<CR>
+imap <F7> <Esc>:copen<CR>
+map ,c :cclose<CR>
+map <S-F7> :cclose<CR>
+imap <S-F7> <Esc>:cclose<CR>
+
+map ,s :g/<C-R><C-W>/nu<CR>
 map <F8> :g/<C-R><C-W>/nu<CR>
 imap <F8> <Esc>:g/<C-R><C-W>/nu<CR>
 
 "Line numbering
+map ,t :set nu<CR>
 map <F11> :set nu<CR>
 imap <F11> <Esc>:set nu<CR>
+
+map ,d :set rnu<CR>
 map <C-F11> :set rnu<CR>
 imap <C-F11> <Esc>:set rnu<CR>
+
 map <S-F11> :set nu<CR>:set nonu<CR>
 
-"Fold methods
-map <C-F12> :set foldmethod=manual<CR>
-map <F12> :set foldmethod=syntax<CR>
+"fold methods
+map <c-f12> :set foldmethod=manual<cr>
+map <f12> :set foldmethod=syntax<cr>
 
-"Coffeescript
-map <F13> :CoffeeCompile<CR>
-imap <F13> <Esc>:CoffeeCompile<CR>
+"coffeescript
+map <f13> :coffeecompile<cr>
+imap <f13> <esc>:coffeecompile<cr>
 
-"Toggle autocopy to clipboard
-map <C-K><C-B> :set guioptions-=a <CR>
+"toggle autocopy to clipboard
+map <c-k><c-b> :set guioptions-=a <cr>
 map <C-K><C-A> :set guioptions+=a<CR>
 
 "Toggle regexp selection highlighting
@@ -115,8 +126,6 @@ imap <C-K><C-X> :silent %!xmllint --encode UTF-8 --format -<CR>
 "Split and jump to tag
 map <C-K><C-J> :vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
 imap <C-K><C-J> <Esc>:vsplit<CR><C-W>l:tjump <C-R><C-W><CR>z.
-
-map ,s :g^<C-R><C-W>^nu<CR>
 
 map ,p "0p
 
