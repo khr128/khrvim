@@ -152,6 +152,7 @@ imap hh <Esc>
 imap ,, ({<CR>});<Esc>O
 map ,, i({<CR>});<Esc>O
 imap ,' ('')<Esc>hi
+imap ," get('')<Esc>hi
 map ,{ i{{}}<Esc>hi
 imap ,{ {{}}<Esc>hi
 map ,f i<Space>function() {<CR>}<Esc>O
