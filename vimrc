@@ -196,6 +196,31 @@ function! s:align()
   endif
 endfunction
 
+
+command! -nargs=* Ff call <SID>Ff(<f-args>)
+function! s:Ff(file_regex, content_match)
+  let l:cmd_output = system('find -E . -type f -regex "'.a:file_regex.'" -exec gawk "BEGIN{c=0}; /'.a:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
+  if strlen(l:cmd_output) > 0
+    " write quickfix errors to a temp file
+    let l:quickfix_tmpfile_name = tempname()
+    exe "redir! > " . l:quickfix_tmpfile_name
+    silent echon l:cmd_output
+    redir END
+    " read in the errors temp file
+    let l:efm = &efm
+    set efm=%f\ %l\ %m
+    execute "silent! cfile " . l:quickfix_tmpfile_name
+    let &efm = l:efm
+
+    " open the quicfix window
+    botright copen
+    let s:qfix_win = bufnr("$")
+
+    " delete the temp file
+    call delete(l:quickfix_tmpfile_name)
+  endif
+endfunction
+
 let g:LustyJugglerShowKeys = 'a'
 
 set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
