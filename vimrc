@@ -80,7 +80,9 @@ map <S-F7> :cclose<CR>
 imap <S-F7> <Esc>:cclose<CR>
 
 map ,s :Fg<CR>
-imap <F8> <Esc>:Fg<CR>
+imap ,s <Esc>:Fg<CR>
+map ,o :Ff<CR>
+imap ,o <Esc>:Ff<CR>
 
 "Line numbering
 map ,t :set nu<CR>
@@ -217,8 +219,18 @@ function! s:ShowInQuickFix(lines, format)
 endfunction
 
 command! -nargs=* Ff call <SID>Ff(<f-args>)
-function! s:Ff(file_regex, content_match)
-  let l:cmd_output = system('find -E . -type f -regex "'.a:file_regex.'" -exec gawk "BEGIN{c=0}; /'.a:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
+function! s:Ff(...)
+  if a:0 == 2
+    let l:file_regex = a:1
+    let l:content_match = a:2
+  elseif a:0 == 1
+    let l:file_regex = a:1
+    let l:content_match = expand("<cword>")
+  else
+    let l:file_regex = '.*.' . expand('%:e')
+    let l:content_match = expand("<cword>")
+  endif
+  let l:cmd_output = system('find -E . -type f -regex "'.l:file_regex.'" -exec gawk "BEGIN{c=0}; /'.l:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
   if strlen(l:cmd_output) > 0
     call s:ShowInQuickFix(l:cmd_output, '%f\ %l\ %m')
   endif
