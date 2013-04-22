@@ -196,8 +196,6 @@ function! s:align()
 endfunction
 
 
-command! -nargs=* Ff call <SID>Ff(<f-args>)
-
 function! s:ShowInQuickFix(lines, format)
     " write quickfix errors to a temp file
     let l:quickfix_tmpfile_name = tempname()
@@ -218,6 +216,7 @@ function! s:ShowInQuickFix(lines, format)
     call delete(l:quickfix_tmpfile_name)
 endfunction
 
+command! -nargs=* Ff call <SID>Ff(<f-args>)
 function! s:Ff(file_regex, content_match)
   let l:cmd_output = system('find -E . -type f -regex "'.a:file_regex.'" -exec gawk "BEGIN{c=0}; /'.a:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
   if strlen(l:cmd_output) > 0
@@ -225,16 +224,18 @@ function! s:Ff(file_regex, content_match)
   endif
 endfunction
 
-command! Fg call <SID>Fg()
-function! s:Fg()
-  let l:cmd_output = ''
-
-  let l:current_file_name = ''
+command! -nargs=? Fg call <SID>Fg(<f-args>)
+function! s:Fg(...)
   redir => l:current_file_name
   silent echo expand('%:p')
   redir END
 
-  let l:word_under_cursor = expand("<cword>")
+  if a:0 > 0
+    let l:word_under_cursor = a:1
+  else
+    let l:word_under_cursor = expand("<cword>")
+  endif
+
   redir => l:cmd_output
   exe 'silent g/'.l:word_under_cursor.'/nu'
   redir END
