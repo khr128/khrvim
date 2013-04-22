@@ -79,9 +79,8 @@ map ,c :cclose<CR>
 map <S-F7> :cclose<CR>
 imap <S-F7> <Esc>:cclose<CR>
 
-map ,s :g/<C-R><C-W>/nu<CR>
-map <F8> :g/<C-R><C-W>/nu<CR>
-imap <F8> <Esc>:g/<C-R><C-W>/nu<CR>
+map ,s :Fg<CR>
+imap <F8> <Esc>:Fg<CR>
 
 "Line numbering
 map ,t :set nu<CR>
@@ -198,17 +197,16 @@ endfunction
 
 
 command! -nargs=* Ff call <SID>Ff(<f-args>)
-function! s:Ff(file_regex, content_match)
-  let l:cmd_output = system('find -E . -type f -regex "'.a:file_regex.'" -exec gawk "BEGIN{c=0}; /'.a:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
-  if strlen(l:cmd_output) > 0
+
+function! s:ShowInQuickFix(lines, format)
     " write quickfix errors to a temp file
     let l:quickfix_tmpfile_name = tempname()
     exe "redir! > " . l:quickfix_tmpfile_name
-    silent echon l:cmd_output
+    silent echon a:lines
     redir END
     " read in the errors temp file
     let l:efm = &efm
-    set efm=%f\ %l\ %m
+    exe 'set efm='.a:format
     execute "silent! cfile " . l:quickfix_tmpfile_name
     let &efm = l:efm
 
@@ -218,6 +216,36 @@ function! s:Ff(file_regex, content_match)
 
     " delete the temp file
     call delete(l:quickfix_tmpfile_name)
+endfunction
+
+function! s:Ff(file_regex, content_match)
+  let l:cmd_output = system('find -E . -type f -regex "'.a:file_regex.'" -exec gawk "BEGIN{c=0}; /'.a:content_match.'/ {printf \"%s %d %s\n\", FILENAME, FNR, \$0; c += 1}; END{print c}" {} +')
+  if strlen(l:cmd_output) > 0
+    call s:ShowInQuickFix(l:cmd_output, '%f\ %l\ %m')
+  endif
+endfunction
+
+command! Fg call <SID>Fg()
+function! s:Fg()
+  let l:cmd_output = ''
+
+  let l:current_file_name = ''
+  redir => l:current_file_name
+  silent echo expand('%:p')
+  redir END
+
+  let l:word_under_cursor = expand("<cword>")
+  redir => l:cmd_output
+  exe 'silent g/'.l:word_under_cursor.'/nu'
+  redir END
+
+  let l:result_list = split(l:cmd_output, '\n')
+  call map(l:result_list, 'substitute(v:val, "^\\s\\+", "", "")')
+  call map(l:result_list, 'l:current_file_name . " " . v:val')
+  let l:cmd_output = join(l:result_list, '\n')
+
+  if strlen(l:cmd_output) > 0
+    call s:ShowInQuickFix(l:cmd_output, '%f\ %l\ %m')
   endif
 endfunction
 
