@@ -156,8 +156,8 @@ imap ,' ('')<Esc>hi
 imap ," get('')<Esc>hi
 map ,{ i{{}}<Esc>hi
 imap ,{ {{}}<Esc>hi
-map ,f i<Space>function() {<CR>}<Esc>O
-imap ,f <Space>function() {<CR>}<Esc>O
+map ,f i<Space>function() {<CR>},<Esc>O
+imap ,f <Space>function() {<CR>},<Esc>O
 
 "nnoremap ; :
 map <up> <nop>
