@@ -146,6 +146,23 @@ imap ,g <Esc>:vsplit<CR><C-W>w:Rrefresh<CR>gf<CR>
 map ,n :NERDTreeFind<CR>
 imap ,n <Esc>:NERDTreeFind<CR>
 
+"Tab numbers
+map ,l :call <SID>numberTabs()<CR>
+
+function! s:numberTabs()
+  set guitablabel=%N\ %t<CR>:set guitabtooltip=%N\ %f<CR>
+  map <D-1> 1gt
+  map <D-2> 2gt
+  map <D-3> 3gt
+  map <D-4> 4gt
+  map <D-5> 5gt
+  map <D-6> 6gt
+  map <D-7> 7gt
+  map <D-8> 8gt
+  map <D-9> 9gt
+  map <D-0> 10gt
+endfunction
+
 imap jj <Esc>
 imap hh <Esc>
 
