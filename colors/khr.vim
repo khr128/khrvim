@@ -2,7 +2,7 @@
 " vim: tw=0 ts=2 sw=2
 " Vim color file
 " Maintainer:   Dmitri Khrebtukov
-" Last Change:  July 2011
+" Last Change:  May 2013
 
 set background=light
 hi clear
@@ -27,6 +27,7 @@ hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=underline guifg=Yellow guibg=DarkGray
 hi CursorLine term=none cterm=underline ctermfg=none ctermbg=none gui=undercurl guifg=fg guibg=#ffffaa guisp=Gray
 hi CursorColumn term=none cterm=none ctermfg=none ctermbg=none gui=underline guifg=fg guibg=#dddfee guisp=#dddddd
+hi TabLineSel guifg=Blue
 hi Folded guibg=#dddfee guifg=darkblue
 hi FoldColumn guibg=#dddfee guifg=darkblue
 hi! link MoreMsg Comment
