@@ -223,7 +223,8 @@ endfunction
 
 let g:LustyJugglerShowKeys = 'a'
 
-set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
+"set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
+set statusline=%n\ %F[%l,%c]%m%r%h%w%=%{fugitive#statusline()}\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set title
 set titlestring=%F\ %{strftime(\"%m/%d/%Y\ %H:%M\")}
 set laststatus=2
