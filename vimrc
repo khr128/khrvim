@@ -95,9 +95,11 @@ map <S-F11> :set nu<CR>:set nonu<CR>
 map <c-f12> :set foldmethod=manual<cr>
 map <f12> :set foldmethod=syntax<cr>
 
-"coffeescript
-map <f13> :coffeecompile<cr>
-imap <f13> <esc>:coffeecompile<cr>
+"resize windows
+map + <C-W>>
+map _ <C-W><
+map ,< <C-W><Bar>
+map ,> 40_
 
 "toggle autocopy to clipboard
 map <c-k><c-b> :set guioptions-=a <cr>
