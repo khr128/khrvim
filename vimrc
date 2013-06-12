@@ -223,6 +223,23 @@ function! s:align()
   endif
 endfunction
 
+function! FoldBalloon()
+  let foldStart = foldclosed(v:beval_lnum)
+  let foldEnd = foldclosedend(v:beval_lnum)
+  let lines = []
+
+  if foldStart >= 0
+    let numLines = foldEnd - foldStart + 1
+    let lines = getline(foldStart, foldEnd)
+  endif
+
+  return join(lines, has("balloon_multiline") ? "\n" : " ")
+endfunction
+
+set balloondelay=400
+set balloonexpr=FoldBalloon()
+set ballooneval
+
 let g:LustyJugglerShowKeys = 'a'
 
 "set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
