@@ -8,4 +8,8 @@ set guioptions+=a
 set cc=120
 set list listchars=extends:>,precedes:<,tab:→\ ,trail:·
 
-set noballooneval
+
+set balloondelay=400
+set balloonexpr=FoldBalloon()
+set ballooneval
+

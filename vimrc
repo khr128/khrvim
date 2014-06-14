@@ -236,10 +236,6 @@ function! FoldBalloon()
   return join(lines, has("balloon_multiline") ? "\n" : " ")
 endfunction
 
-set balloondelay=400
-set balloonexpr=FoldBalloon()
-set ballooneval
-
 let g:LustyJugglerShowKeys = 'a'
 
 "set statusline=%n\ %F[%l,%c]%m%r%h%w%{fugitive#statusline()}%=%{strftime(\"%m/%d/%Y\ %H:%M\")}
